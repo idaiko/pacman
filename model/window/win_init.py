@@ -21,16 +21,16 @@ def create_window():
     # будем использовать как фон
     bg.fill(Color(background_color))  # Заливаем поверхность сплошным цветом
 
-    hero = Player(16, 16)
+    hero = Player(384, 352)
 
     left = right = up = down = False  # по умолчанию — стоим
 
     timer = pygame.time.Clock()
 
     while done:  # Основной цикл программы
-        timer.tick(30)
+        timer.tick(20)
         for e in event.get():  # Обрабатываем события
-            if e.type == QUIT:
+            if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                 done = False
             if e.type == KEYDOWN and e.key == K_LEFT:
                 left = True
@@ -53,7 +53,6 @@ def create_window():
                 down = False
         screen.blit(bg, (0, 0))  # Каждую итерацию необходимо всё перерисовывать
 
-        levelinit.level_create(screen)
-        hero.update(left, right, up, down)  # передвижение
-        hero.draw(screen)  # отображение
+        e_p = levelinit.level_create(screen, hero)
+        hero.update(left, right, up, down, e_p[1])  # передвижение
         display.update()  # обновление и вывод всех изменений на экран
