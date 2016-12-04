@@ -43,7 +43,7 @@ def level_create(screen, hero):
         "\t\t\t\t\t\t\t\t\t\t\t\t-------------------------"]
     platform_width = 16
     platform_height = 16
-    platform_color = "#1739C3"
+    #platform_color = "#1739C3"
 
     x = y = 0  # координаты
     for row in level:  # вся строка
@@ -76,4 +76,4 @@ def level_create(screen, hero):
     platforms.append(tp1)
     platforms.append(tp2)
     entities.draw(screen)  # отображение
-    return entities, platforms
+    return platforms, entities

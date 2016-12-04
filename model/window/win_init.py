@@ -27,6 +27,8 @@ def create_window():
 
     timer = pygame.time.Clock()
 
+    e_p = levelinit.level_create(screen, hero)
+
     while done:  # Основной цикл программы
         timer.tick(30)
         for e in event.get():  # Обрабатываем события
@@ -53,6 +55,6 @@ def create_window():
                 down = False
         screen.blit(bg, (0, 0))  # Каждую итерацию необходимо всё перерисовывать
 
-        e_p = levelinit.level_create(screen, hero)
-        hero.update(left, right, up, down, e_p[1])  # передвижение
+        hero.update(left, right, up, down, e_p[0])  # передвижение
+        e_p[1].draw(screen)
         display.update()  # обновление и вывод всех изменений на экран
