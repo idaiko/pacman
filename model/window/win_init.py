@@ -28,7 +28,7 @@ def create_window():
     timer = pygame.time.Clock()
 
     while done:  # Основной цикл программы
-        timer.tick(20)
+        timer.tick(30)
         for e in event.get():  # Обрабатываем события
             if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                 done = False
