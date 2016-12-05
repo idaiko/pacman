@@ -4,19 +4,28 @@ from model.levels.block import Platform
 from model.levels.teleports import BlockTeleport
 
 
-def level_create(screen, hero):
+def level_create(screen, hero, mn):
 
    # hero = create_player()
+    monsters = sprite.Group()  # Все передвигающиеся объекты
+
+
+
+
     entities = sprite.Group()  # Все объекты
     platforms = []  # то, во что мы будем врезаться или опираться
     entities.add(hero)
-    #left = right = up = down = False  # по умолчанию — стоим
+
+
+    entities.add(mn)
+    platforms.append(mn)
+    monsters.add(mn)  #left = right = up = down = False  # по умолчанию — стоим
 
     level = [
-        "                         ",
-        "                         ",
-        "                         ",
-        "                         ",
+        "",
+        "",
+        "",
+        "",
         "\t\t\t\t\t\t\t\t\t\t\t\t-------------------------",
         "\t\t\t\t\t\t\t\t\t\t\t\t-           -           -",
         "\t\t\t\t\t\t\t\t\t\t\t\t- --- ----- - ----- --- -",
