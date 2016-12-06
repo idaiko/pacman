@@ -27,8 +27,8 @@ def create_window():
     bg.fill(Color(background_color))  # Заливаем поверхность сплошным цветом
 
     # start menu
-    points = [(300, 200, "Start Game", (255, 255, 255), (135, 135, 135), 0),
-              (300, 250, "Quit Game", (255, 255, 255), (135, 135, 135), 1)]
+    points = [(300, 200, "Start Game", (135, 135, 135), (255, 255, 255), 0),
+              (300, 250, "Quit Game", (135, 135, 135),  (255, 255, 255), 1)]
     #points = [(200, 200, "Quit Game", (255, 255, 255), (135, 135, 135), 1)]
     game_menu = Menu(points)
     game_menu.menu(screen, bg)
@@ -40,7 +40,7 @@ def create_window():
 
     timer = pygame.time.Clock()
     text_str = fonts()
-    mn = Monster(416, 352, 4, 0, 304, 352)
+    mn = Monster(416, 352, 4, 0, 304, 336)
 
     e_p = levelinit.level_create(screen, hero, mn)
 
@@ -72,7 +72,7 @@ def create_window():
         screen.blit(bg, (0, 0))  # Каждую итерацию необходимо всё перерисовывать
         screen.blit(text_str.render("Lifes: ", 1, (255, 255, 255)), (200, 438))
         screen.blit(text_str.render("Score: ", 1, (255, 255, 255)), (200, 15))
-        hero.update(left, right, up, down, e_p[0])  # передвижение
+        hero.update(left, right, up, down, e_p[0], e_p[2])  # передвижение
         mn.update(e_p[0], hero)  # передвигаем всех монстров
         e_p[1].draw(screen)
         display.update()  # обновление и вывод всех изменений на экран
