@@ -7,7 +7,7 @@ class Menu:
         self.points = points
 
     def draw(self, bg, font_menu, num_points):
-        #font = fonts()
+
         for i in self.points:
             if num_points == i[5]:
                 bg.blit(font_menu.render(i[2], 1, i[4]), (i[0], i[1]))
@@ -18,6 +18,10 @@ class Menu:
         done = True
         font_menu = fonts()
         point = 0
+        mixer.init()
+
+        mixer.music.load('F:/pacman_py/sound/pacman_beginning.wav')
+        mixer.music.play()
 
         mouse.set_visible(True)
         key.set_repeat(0, 0)
@@ -48,7 +52,7 @@ class Menu:
                     if e.key == K_DOWN:
                         if point < len(self.points) - 1:
                             point += 1
-                if e.type == MOUSEBUTTONDOWN and e.button == 1:
+                if e.type == MOUSEBUTTONDOWN and e.button == 1 or (e.type == KEYDOWN and e.key == K_RETURN):
                     if point == 0:
                         done = False
                     elif point == 1:
@@ -57,4 +61,3 @@ class Menu:
             screen.blit(bg, (0, 0))  # Каждую итерацию необходимо всё перерисовывать
             screen.blit(picture_screen, (0, 0))  # Каждую итерацию необходимо всё перерисовывать
             display.update()
-            #display.update()

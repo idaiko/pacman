@@ -7,6 +7,8 @@ WIDTH = 16
 HEIGHT = 16
 COLOR = "#EB6313"
 
+
+
 ANIMATION_DELAY = 0.1 # скорость смены кадров
 PACMAN_WALK_UP = [('F:/pacman_py/Images/Player/pacman-u 1.gif'),
                   ('F:/pacman_py/Images/Player/pacman-u 2.gif'),
@@ -91,11 +93,14 @@ class Player(sprite.Sprite):
         self.boltAnimStay.play()
         self.boltAnimStay.blit(self.image, (0, 0))  # По-умолчанию, стоим
 
+
+
     def teleporting(self, goX, goY):
         self.rect.x = goX
         self.rect.y = goY
 
     def update(self, left, right, up, down, platforms, platforms_dots):
+
         if left:
             self.xvel = -MOVE_SPEED  # Лево = x- n
             self.image.fill(Color(COLOR))
@@ -122,6 +127,7 @@ class Player(sprite.Sprite):
 
         if not (up or down):  # стоим, когда нет указаний идти
             self.yvel = 0
+
 
         self.rect.y += self.yvel
         self.collide(0, self.yvel, platforms, platforms_dots)
