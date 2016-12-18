@@ -44,8 +44,6 @@ PACMAN_WALK_RIGHT = [('F:/pacman_py/Images/Player/pacman-r 1.gif'),
                     ('F:/pacman_py/Images/Player/pacman-r 7.gif'),
                     ('F:/pacman_py/Images/Player/pacman-r 8.gif')]
 
-#PACMAN_WALK_RIGHT = [('F:/pacman_py/Images/Player/pacman.png'),
-#                    ('F:/pacman_py/Images/Player/pacman')]
 
 ANIMATION_STAY = [('F:/pacman_py/Images/Player/pacman-r 1.gif', 0.1)]
 
@@ -108,7 +106,6 @@ class Player(sprite.Sprite):
             self.image.fill(Color(COLOR))
             self.boltAnimRight.blit(self.image, (0, 0))
 
-
         if not (left or right):  # стоим, когда нет указаний идти
             self.xvel = 0
             self.image.fill(Color(COLOR))
@@ -131,7 +128,6 @@ class Player(sprite.Sprite):
 
         self.rect.x += self.xvel  # переносим свои положение на xvel
         self.collide(self.xvel, 0, platforms, platforms_dots)
-
 
     def collide(self, xvel, yvel, platforms, platforms_dots):
         for p in platforms:
@@ -156,7 +152,7 @@ class Player(sprite.Sprite):
                     self.teleporting(p.goX, p.goY)
 
         for p in platforms_dots:
-            if sprite.collide_rect(self, p):  # если есть пересечение платформы с игроком
+            if sprite.collide_rect(self, p):  # если есть пересечение точек с игроком
 
                 if xvel > 0:  # если движется вправо
                     self.rect.right = p.rect.left  # то не движется вправо
@@ -175,7 +171,6 @@ class Player(sprite.Sprite):
 
                 if isinstance(p, BlockTeleport):
                     self.teleporting(p.goX, p.goY)
-   # def delete_dot(self, platforms_dots):
-    #    for p in platforms_dots:
-    #        if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
+
+
 

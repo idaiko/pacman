@@ -4,7 +4,6 @@
 # Импортируем библиотеку pygame
 import model.window.win_init as wininit
 
-
 def main():
     wininit.create_window()
 

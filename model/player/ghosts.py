@@ -1,18 +1,16 @@
 from pygame import *
 import controller.pyganim as pyganim
-import os
 
 MONSTER_WIDTH = 16
 MONSTER_HEIGHT = 16
 MONSTER_COLOR = "#2110FF"
-#ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
 
-ANIMATION_MONSTERHORYSONTAL = [("F:/pacman_py//Images/Ghosts/ghost 1.gif"),
-                               ("F:/pacman_py/Images/Ghosts/ghost 2.gif"),
-                               ("F:/pacman_py/Images/Ghosts/ghost 3.gif"),
-                               ("F:/pacman_py/Images/Ghosts/ghost 4.gif"),
-                               ("F:/pacman_py/Images/Ghosts/ghost 5.gif"),
-                               ("F:/pacman_py/Images/Ghosts/ghost 6.gif")]
+ANIMATION_MONSTERHORYSONTAL = [("F:/pacman_py//Images/Ghosts/ghost 1.png"),
+                               ("F:/pacman_py/Images/Ghosts/ghost 2.png"),
+                               ("F:/pacman_py/Images/Ghosts/ghost 3.png"),
+                               ("F:/pacman_py/Images/Ghosts/ghost 4.png"),
+                               ("F:/pacman_py/Images/Ghosts/ghost 5.png"),
+                               ("F:/pacman_py/Images/Ghosts/ghost 6.png")]
 
 
 class Monster(sprite.Sprite):
@@ -43,11 +41,6 @@ class Monster(sprite.Sprite):
         self.rect.x += self.xvel
 
         self.collide(platforms, hero)
-
-        #if (abs(self.startX - self.rect.x) > self.gPosX):
-           # self.xvel = -self.xvel  # если прошли максимальное растояние, то идеи в обратную сторону
-        #if (abs(self.startY - self.rect.y) > self.gPosY):
-          #  self.yvel = -self.yvel  # если прошли максимальное растояние, то идеи в обратную сторону, вертикаль
 
     def collide(self, platforms, hero):
         for p in platforms:
